@@ -6,19 +6,32 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:11:44 by amugnier          #+#    #+#             */
-/*   Updated: 2023/09/23 17:15:42 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:24:10 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Contact.hpp"
+#include <iomanip>
+#include "PhoneBook.hpp"
 
 int main(void)
 {
-	Contact test(3.14f);
+	PhoneBook Phonebook;
+	std::string input = "";
+	Phonebook.enter_phonebook();
+	while (input != "EXIT")
+	{
+		std::cout << "Enter your choice "<< std::endl;
+		if (input == "ADD")
+			Phonebook.add_new_contact();
+		else if (input == "SEARCH")
+		{
+			Phonebook.display_contact();
+			Phonebook.search_contact();
+		}
+		std::cout << "> " << std::flush;
+		std::getline(std::cin, input);
+	}
 
-	std::cout << "main function are callling" << std::endl;
-
-	test.function2();
 	return (0);
 }
