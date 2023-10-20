@@ -31,6 +31,7 @@ int main(void)
 		}
 		std::cout << "> " << std::flush;
 		std::getline(std::cin, input);
+		std::cout << input << std::endl;
 	}
 
 	return (0);
