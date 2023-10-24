@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 13:19:52 by amugnier          #+#    #+#             */
-/*   Updated: 2023/10/20 13:21:24 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:29:29 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 int main (void)
 {
 	Account test(100);
-
 	test.displayStatus();
 }

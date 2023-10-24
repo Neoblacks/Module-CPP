@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:11:44 by amugnier          #+#    #+#             */
-/*   Updated: 2023/10/19 14:24:10 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/10/24 17:39:43 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ int main(void)
 		std::getline(std::cin, input);
 		std::cout << input << std::endl;
 	}
-
 	return (0);
 }

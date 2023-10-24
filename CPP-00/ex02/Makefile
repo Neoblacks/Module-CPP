@@ -6,13 +6,13 @@
 #    By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 15:26:17 by amugnier          #+#    #+#              #
-#    Updated: 2023/10/20 15:23:34 by amugnier         ###   ########.fr        #
+#    Updated: 2023/10/24 17:30:13 by amugnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = account
 
-SRCS = tests.cpp Account.cpp
+SRCS = Account.cpp tests.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
