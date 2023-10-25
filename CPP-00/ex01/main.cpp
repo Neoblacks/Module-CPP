@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:11:44 by amugnier          #+#    #+#             */
-/*   Updated: 2023/10/24 17:39:43 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:19:35 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int main(void)
 	PhoneBook Phonebook;
 	std::string input = "";
 	Phonebook.enter_phonebook();
-	while (input != "EXIT")
+	//while (input != "EXIT"
+	while (input != "EXIT" && !std::cin.eof())
 	{
 		std::cout << "Enter your choice "<< std::endl;
 		if (input == "ADD")

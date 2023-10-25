@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 13:01:55 by amugnier          #+#    #+#             */
-/*   Updated: 2023/10/24 17:59:46 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/10/25 12:44:44 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,10 @@ void Account::displayStatus( void ) const
 
 void Account::_displayTimestamp( void )
 {
-	std::time_t timestamp= std::time(0);
-	char	buffer[20];
+	std::time_t timestamp = std::time(0);
+	char	buffer[19];
 	//this line will display the timestamp in the following format: [20231020_133712]
 	struct tm *tm_info = std::localtime(&timestamp);
-	strftime(buffer, sizeof(buffer),"%Y%m%d_%H%M%S", tm_info);
-	std::cout << "[" << buffer << "] ";
+	strftime(buffer, sizeof(buffer),"[%Y%m%d_%H%M%S] ", tm_info);
+	std::cout << buffer;
 }
