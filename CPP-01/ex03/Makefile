@@ -6,13 +6,13 @@
 #    By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 15:26:17 by amugnier          #+#    #+#              #
-#    Updated: 2023/10/25 15:06:14 by amugnier         ###   ########.fr        #
+#    Updated: 2023/10/31 12:52:07 by amugnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fight
 
-SRCS = main.cpp HumanA.cpp Weapon.cpp
+SRCS = main.cpp HumanA.cpp Weapon.cpp HumanB.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:41:37 by amugnier          #+#    #+#             */
-/*   Updated: 2023/10/25 15:14:47 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:05:43 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 Weapon::Weapon(std::string type)
 {
-	this->setType(type);
+	this->_type = type;
 	std::cout << "Create " << this->getType() << std::endl;
 }
 
-Weapon::~Weapon( void )
+const std::string Weapon::getType(void)
 {
-	std::cout << "Broken " << this->getType() << std::endl;
+	return (this->_type);
 }
 
-void	Weapon::setType(std::string newType)
+void Weapon::setType(std::string newType)
 {
-	_type = newType;
+	this->_type = newType;
 }
 
-std::string Weapon::getType( void )
+Weapon::~Weapon()
 {
-	return (_type);
+	std::cout << this->getType() << " Destroyed" << std::endl;
 }
 
 
