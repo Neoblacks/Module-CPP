@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:27:58 by amugnier          #+#    #+#             */
-/*   Updated: 2023/11/01 16:41:29 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:50:49 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 Harl::Harl()
 {
-	std::cout << "Constructor Harl called" << std::endl;
-}
-
-Harl::~Harl()
-{
-	std::cout << "Destructor Harl called" << std::endl;
+	std::cout << "Constructor Harl called" << std::endl << std::endl;
 }
 
 void	Harl::complain(std::string level)
@@ -58,4 +53,9 @@ void	Harl::warning( void )
 void	Harl::error( void )
 {
 	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
+}
+
+Harl::~Harl()
+{
+	std::cout << "Destructor Harl called" << std::endl << std::endl;
 }

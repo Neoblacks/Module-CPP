@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 17:35:32 by amugnier          #+#    #+#             */
-/*   Updated: 2023/11/27 18:22:15 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:42:22 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Character : public ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
-
+		AMateria *getAddress(int i);
 		~Character();
 
 	private:

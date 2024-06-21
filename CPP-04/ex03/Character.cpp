@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 17:35:45 by amugnier          #+#    #+#             */
-/*   Updated: 2023/11/27 18:34:39 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:43:29 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,19 @@ void Character::equip(AMateria *m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (!this->_inventory[i])
+		if (this->_inventory[i] == NULL)
 		{
-			this->_inventory[i] = m;
-			std::cout << this->_name << " equiped with " << m->getType() << "in slot :" << i << std::endl;
-			return ;
+			if (m)
+			{
+				this->_inventory[i] = m;
+				std::cout << this->_name << " equiped with " << m->getType() << " in slot : " << i << std::endl;
+				return ;
+			}
+			else
+			{
+				std::cout << this->_name << " can't equiped" << std::endl;
+				return ;
+			}
 		}
 	}
 }
@@ -63,7 +71,7 @@ void Character::unequip(int idx)
 {
 	if (this->_inventory[idx])
 	{
-		delete this->_inventory[idx];
+		// delete this->_inventory[idx];
 		this->_inventory[idx] = NULL;
 		std::cout << this->_name << " unequiped" << std::endl;
 	}
@@ -80,6 +88,14 @@ void Character::use(int idx, ICharacter &target)
 	}
 	else
 		std::cout << this->_name << " inventory is empty or can't use" << std::endl;
+}
+
+AMateria *Character::getAddress(int i)
+{
+	if (_inventory[i])
+		return (_inventory[i]);
+	else
+		return (NULL);
 }
 
 Character::~Character()

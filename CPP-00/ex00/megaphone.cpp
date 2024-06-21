@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:26:21 by amugnier          #+#    #+#             */
-/*   Updated: 2023/09/23 15:57:14 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:48:56 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 				std::cout << (char)std::toupper(argv[i][j], loc);
 				j++;
 			}
-			std::cout << " ";
+			//std::cout << " ";
 			i++;
 		}
 		std::cout << std::endl;

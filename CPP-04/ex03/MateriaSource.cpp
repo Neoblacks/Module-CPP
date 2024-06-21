@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 17:49:09 by amugnier          #+#    #+#             */
-/*   Updated: 2023/11/27 18:11:31 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/29 12:54:51 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 		if (_materia[i] && _materia[i]->getType() == type)
 			return (_materia[i]->clone());
 	}
+	std::cout<< "This materia doesn't exist" << std::endl;
 	return (NULL);
 }
 
@@ -63,6 +64,7 @@ void MateriaSource::learnMateria(AMateria *material)
 			return ;
 		}
 	}
+	delete material;
 }
 
 MateriaSource::~MateriaSource()

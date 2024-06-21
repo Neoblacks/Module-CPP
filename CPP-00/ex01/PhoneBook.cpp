@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:09:25 by amugnier          #+#    #+#             */
-/*   Updated: 2023/10/25 15:42:32 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:56:59 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int	PhoneBook::_readcin(void) const
 {
 	int		i;
 	bool	is_valid = false;
-	while (!is_valid)
+	while (!is_valid && !std::cin.eof())
 	{
 		std::cout << "Please choose a Contact with his index" << std::endl;
+
 		std::cout << "> " << std::flush;
 		std::cin >> i;
 		std::cout << "Input :" << i << std::endl;
-		std::cout << "is good ? " << std::cin.good() << std::endl;
 		if (std::cin.good() && i >= 0 && i < 9)
 			is_valid = true;
 		else
@@ -68,10 +68,9 @@ void	PhoneBook::enter_phonebook(void) const
 {
 	std::cout << "HELLO ! I'M YOUR PHONEBOOK !" << std::endl;
 	std::cout << "What do you want to do ?" << std::endl;
-	std::cout << "ADD a new contact ?" << std::endl;
-	std::cout << "SEARCH a contact ?" << std::endl;
-	std::cout << "DISPLAY all contacts ?" << std::endl;
-	std::cout << "EXIT ?" << std::endl;
+	std::cout << "ADD a new contact" << std::endl;
+	std::cout << "SEARCH a contact" << std::endl;
+	std::cout << "EXIT" << std::endl;
 }
 
 

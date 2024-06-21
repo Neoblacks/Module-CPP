@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:15:16 by amugnier          #+#    #+#             */
-/*   Updated: 2023/11/27 17:02:12 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:37:13 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ Cat::Cat(const Cat &src)
 Cat &Cat::operator=(const Cat &src)
 {
 	std::cout << "Cat assignation operator called" << std::endl;
+	if (this->_brain)
+		delete this->_brain;
 	if (this != &src)
 	{
 		this->_type = src._type;

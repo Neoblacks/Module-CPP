@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:13:50 by amugnier          #+#    #+#             */
-/*   Updated: 2023/11/27 16:13:48 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:36:57 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ Dog::Dog(const Dog &src)
 Dog &Dog::operator=(const Dog &src)
 {
 	std::cout << "Dog assignation operator called" << std::endl;
+	if (this->_brain)
+		delete this->_brain;
 	if (this != &src)
 	{
 		this->_type = src._type;

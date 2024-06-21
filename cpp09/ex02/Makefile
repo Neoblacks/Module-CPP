@@ -6,19 +6,19 @@
 #    By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 15:26:17 by amugnier          #+#    #+#              #
-#    Updated: 2023/10/19 14:31:56 by amugnier         ###   ########.fr        #
+#    Updated: 2024/06/21 12:12:16 by amugnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = PmergeMe
 
-SRCS = PhoneBook.cpp Contact.cpp main.cpp
+SRCS = main.cpp Pmerge2.cpp dequeu.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -g3 -std=c++98
 
 all: $(NAME)
 

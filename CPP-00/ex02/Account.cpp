@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 13:01:55 by amugnier          #+#    #+#             */
-/*   Updated: 2023/10/25 12:44:44 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:02:06 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ bool Account::makeWithdrawal( int withdrawal )
 	}
 	else
 	{
-		std::cout << withdrawal << "->refused" << std::endl;
+		std::cout << "refused" << std::endl;
 		return (false);
 	}
 }

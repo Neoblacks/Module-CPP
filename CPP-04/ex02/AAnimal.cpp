@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:45:32 by amugnier          #+#    #+#             */
-/*   Updated: 2023/11/27 17:00:05 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:35:30 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ AAnimal::AAnimal() : _type("AAnimal")
 
 AAnimal::AAnimal(std::string type) : _type(type)
 {
-	std::cout << this->_type << " Are an Aanimal which called" << std::endl;
+	std::cout << this->_type << " Are an AAnimal which called" << std::endl;
 }
 
 AAnimal::AAnimal(const AAnimal &src)

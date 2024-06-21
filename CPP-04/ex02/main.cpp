@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 12:01:14 by amugnier          #+#    #+#             */
-/*   Updated: 2023/11/27 17:02:12 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:55:08 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,14 @@ int main()
 	delete i;
 	Dog basic;
 	{
-		Dog tmp = basic;
+		Dog tmp = basic; // copy constructor shallow
 	}
 
 	const AAnimal* animals[4] = { new Dog(), new Dog(), new Cat(), new Cat() };
 	for (int i = 0; i < 4; i++)
 		delete animals[i];
 	return 0;
+	// Cat cat1;
+	// Cat cat2;
+	// cat1 = cat2;
 }
