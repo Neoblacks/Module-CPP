@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:52:39 by amugnier          #+#    #+#             */
-/*   Updated: 2024/03/14 15:37:23 by amugnier         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:23:15 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,37 @@ BitcoinExchange::BitcoinExchange(const std::string &filename)
 	std::ifstream file(filename.c_str());
 	if (!file.is_open())
 	{
-		std::cerr << "Error: file not found" << std::endl;
+		std::cerr << "Error: file csv not found" << std::endl;
 		return ;
 	}
 	std::string line;
-	std::getline(file, line);
 	while (std::getline(file, line))
 	{
 		std::string::size_type pos = line.find(',');
 		if (pos == std::string::npos)
 		{
-			std::cerr << "Error: invalid file format" << std::endl;
+			std::cerr << "Error: invalid file csv format" << std::endl;
 			return ;
 		}
 		std::string date = line.substr(0, pos);
 		std::string value_rate = line.substr(pos + 1);
 
+		//Check if value rate is only digit or '.'
+		if (value_rate.find_first_not_of("0123456789.") != std::string::npos)
+		{
+			std::cerr << "Error: invalid file csv format " << value_rate << std::endl;
+			return ;
+		}
+		if(_CheckDate(date) == false)
+		{
+			std::cerr << "Error: invalid date csv format " << date << std::endl;
+			continue ;
+		}
 		std::istringstream iss(value_rate);
 		double value;
 		if (!(iss >> value))
 		{
-			std::cerr << "Error: invalid file format " << value_rate << std::endl;
+			std::cerr << "Error: invalid file csv format " << value_rate << std::endl;
 			return ;
 		}
 		_data[date] = value;
@@ -66,7 +76,7 @@ void	BitcoinExchange::Input(const std::string &filename)
 	std::ifstream file(filename.c_str());
 	if (!file.is_open())
 	{
-		std::cerr << "Error: file not found" << std::endl;
+		std::cerr << "Error: file not txt found" << std::endl;
 		return ;
 	}
 	std::string line;
@@ -75,28 +85,36 @@ void	BitcoinExchange::Input(const std::string &filename)
 	{
 		std::istringstream iss(line);
 		std::string date;
-
+		std::string::size_type pos = line.find('|');
+		if (pos == std::string::npos)
+		{
+			std::cerr << "Error: No delimeter ('|') in this line " << line << std::endl;
+			continue ;
+		}
+		std::string string_value = line.substr(pos + 2);
+		if (string_value.find_first_not_of("0123456789.") != std::string::npos)
+		{
+			std::cerr << "Error: Number must be a digit" << std::endl;
+			continue ;
+		}
 		double value;
 		char del;
 		if (!(iss >> date >> del >> value))
 		{
-			std::cerr << "Error: invalid file format " << line << std::endl;
+			std::cerr << "Error: invalid file txt format " << line << std::endl;
 			continue ;
 		}
-		if (del != '|')
+		if (!_CheckDate(date))
 		{
-			std::cerr << "Error: no | delimiter " << line << std::endl;
+			std::cerr << "Error: invalid date format " << date << std::endl;
 			continue ;
 		}
-		if (!_CheckDate(date) || !_CheckValue(value))
-		{
-			std::cerr << "Error: invalid date or value format " << line << std::endl;
+		if (!_CheckValue(value))
 			continue ;
-		}
 		double rate = _Rate(date);
 		if (rate == -1.0)
 		{
-			std::cerr << "Error: no rate found for " << date << std::endl;
+			std::cerr << "Error: no rate found for " << date << " in csv file" << std::endl;
 			continue ;
 		}
 		std::cout << "\033[1;32m" <<  date << " => " << value << " => " << value * rate << "\033[0m" << std::endl;
@@ -105,8 +123,11 @@ void	BitcoinExchange::Input(const std::string &filename)
 
 bool BitcoinExchange::_CheckValue(double &value)
 {
-	if (value < 0 || value > 10000)
+	if (value < 0 || value > 1000)
+	{
+		std::cout << "Error: Number out of range ( 0 < value < 1000 )" << std::endl;
 		return false;
+	}
 	return true;
 }
 
@@ -151,13 +172,20 @@ bool BitcoinExchange::_CheckDate(std::string &date)
 }
 
 
+
 double BitcoinExchange::_Rate(const std::string &date)
 {
-	std::map<std::string, double>::iterator it = _data.lower_bound(date);
+	std::map<std::string, double>::iterator it = _data.upper_bound(date);
 	if (it->first != date && it != _data.begin())
 		--it;
 	if (it != _data.end())
+	{
+		if (date < it->first)
+		{
+			return -1.0;
+		}
 		return it->second;
+	}
 	else if (!(_data.empty()))
 		return it->second;
 	return -1.0;

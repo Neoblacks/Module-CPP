@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 13:58:30 by amugnier          #+#    #+#             */
-/*   Updated: 2024/03/12 14:16:22 by amugnier         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:55:57 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 # include <iostream>
 # include <stack>
+# include <algorithm>
 # include <deque>
 # include <list>
-# include <algorithm>
+# include <vector>
 
 template < typename T, class Container = std::deque<T> >
 

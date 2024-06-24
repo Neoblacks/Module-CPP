@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:43:15 by amugnier          #+#    #+#             */
-/*   Updated: 2024/03/11 16:17:15 by amugnier         ###   ########.fr       */
+/*   Updated: 2024/06/24 11:59:02 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ std::ostream &operator<<(std::ostream &o, const Span &rhs)
 {
 	for (std::vector<int>::const_iterator it = rhs.getVec()->begin(); it != rhs.getVec()->end(); it++)
 	{
-		o << *it << std::endl;
+		o << *it << std::endl<< "---" << std::endl;
 	}
 	return o;
 }

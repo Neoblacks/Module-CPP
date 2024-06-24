@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:41:51 by amugnier          #+#    #+#             */
-/*   Updated: 2024/06/12 14:39:33 by amugnier         ###   ########.fr       */
+/*   Updated: 2024/06/24 12:00:08 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int main()
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(42);
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl << std::endl;
 	std::cout << "Vector elements: \033[32m" << std::endl << std::endl << sp << "\033[0m" << std::endl;
+	std::cout << "ShortestSpan : " << sp.shortestSpan() << std::endl;
+	std::cout << "LongestSpan : " << sp.longestSpan() << std::endl << std::endl;
 	std:: cout << std::endl;
 	std::cout << "\033[34m----------TEST 2-----------\033[0m" << std::endl << std::endl;
 	try{
@@ -45,10 +45,15 @@ int main()
 	try{
 		Span span = Span(4);
 		span.addNumber(1);
+		std::cout << "Vector elements: \033[35m" << std::endl << std::endl << span << "\033[0m" << std::endl;
 		span.addNumber(2);
+		std::cout << "Vector elements: \033[35m" << std::endl << std::endl << span << "\033[0m" << std::endl;
 		span.addNumber(3);
+		std::cout << "Vector elements: \033[35m" << std::endl << std::endl << span << "\033[0m" << std::endl;
 		span.addNumber(4);
+		std::cout << "Vector elements: \033[35m" << std::endl << std::endl << span << "\033[0m" << std::endl;
 		span.addNumber(5);
+		std::cout << "Vector elements: \033[35m" << std::endl << std::endl << span << "\033[0m" << std::endl;
 	}
 	catch (std::exception &e)
 	{

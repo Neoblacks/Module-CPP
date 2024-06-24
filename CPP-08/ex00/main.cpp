@@ -42,7 +42,7 @@ int main(void)
 	std::list<int>::const_iterator it2;
 	try
 	{
-		it2 = easyfind(lst, 10);
+		it2 = easyfind(lst, 1);
 		std::cout << "Value : " << *it2 << " Found" << std::endl;
 	}
 	catch (std::exception &e)

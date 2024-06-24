@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:52:35 by amugnier          #+#    #+#             */
-/*   Updated: 2024/03/14 17:18:12 by amugnier         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:43:27 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ class BitcoinExchange
 		bool	_CheckValue(double &value);
 		bool	_CheckDate(std::string &date);
 };
+
 
 #endif
